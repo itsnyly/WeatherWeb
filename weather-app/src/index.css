@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,3 +15,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-container {
+  @apply max-w-sm w-full rounded-xl bg-white;
+}
+
+.card-header {
+  @apply flex flex-row justify-between p-6;
+}
+
+.card-title {
+  @apply text-gray-900 font-bold text-xl mb-2;
+}
+
+.card-value {
+  @apply text-gray-700 text-4xl;
+}
+
