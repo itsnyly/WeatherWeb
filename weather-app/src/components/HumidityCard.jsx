@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-function HumidityCard() {
+function HumidityCard({ humidity }) {
   return (
-    <div>HumidityCard</div>
+    <div>
+      <h2>Humidity from today : {humidity}% </h2>
+    </div>
   )
 }
 
