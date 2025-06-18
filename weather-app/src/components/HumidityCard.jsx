@@ -1,6 +1,5 @@
 import React from 'react';
-import cloudyDay from '../assets/cloudy_day.png';
-
+import humidityIcon from '../assets/HumidityIcon.png';
 
 function HumidityCard({ humidity }) {
   return (
@@ -8,7 +7,7 @@ function HumidityCard({ humidity }) {
      <div className='mb-8'>
        <div className='card-header'>
          <div className='card-title'>Humidity</div>
-         <img src={cloudyDay} alt="cloudy day" class="w-16" />
+         <img src={humidityIcon} alt="humidity Icon" class="w-16" />
        </div>
        <p className='card-value'>{humidity}</p>
      </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import cloudyDay from '../assets/cloudy_day.png';
+import windIcon from '../assets/WindIcon.png';
 
 function WindCard({ wind }) {
   return (
@@ -7,7 +7,7 @@ function WindCard({ wind }) {
               <div className='mb-8'>
                 <div className='card-header'>
                   <div className='card-title'>Wind</div>
-                  <img src={cloudyDay} alt="cloudy day" class="w-16" />
+                  <img src={windIcon} alt="wind icon" class="w-16" />
                 </div>
                 <p className='card-value'>{wind}</p>
               </div>

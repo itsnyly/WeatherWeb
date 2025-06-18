@@ -21,7 +21,7 @@ code {
 }
 
 .card-header {
-  @apply flex flex-row justify-between p-6;
+  @apply flex flex-row justify-between pt-4 pl-4 pr-4;
 }
 
 .card-title {
