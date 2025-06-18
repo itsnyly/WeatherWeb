@@ -1,6 +1,7 @@
 import './App.css';
 import Humidity from './components/HumidityCard';
 import Temperature from './components/TemperatureCard';
+import Title from './components/TitleCard';
 import useCurrentWeather from './hooks/useCurrentWeather';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Title city={data.location.name} last_update={data.current.last_updated}></Title>
         <Temperature temperature_c={data.current.temp_c} 
         temperature_f={data.current.temp_f} 
         sensation_c={data.current.feelslike_c} 
