@@ -1,6 +1,5 @@
 import './App.css';
 import Humidity from './components/HumidityCard';
-import Temperature from './components/TemperatureCard';
 import Title from './components/TitleCard';
 import Wind from './components/WindCard';
 import useCurrentWeather from './hooks/useCurrentWeather';
@@ -13,16 +12,21 @@ function App() {
   if(error) return <p>Error: {error}</p>
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Title city={data.location.name} last_update={data.current.last_updated}></Title>
-        <Temperature temperature_c={data.current.temp_c} 
-        temperature_f={data.current.temp_f} 
-        sensation_c={data.current.feelslike_c} 
-        sensation_f={data.current.feelslike_f}></Temperature>
-        <Humidity humidity={data.current.humidity}></Humidity>
-        <Wind wind={data.current.wind_mph}></Wind>
-      </header>
+    <div class="text-center flex">
+      <nav class="bg-blue-400 min-h-screen max-w-sm p-3">
+        <ul>
+          <li>
+            <Title city={data.location.name} last_update={data.current.last_updated}></Title>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <div class="mr-3 grid-rows-2">
+          <Humidity humidity={data.current.humidity}></Humidity>
+          <Wind wind={data.current.wind_mph}></Wind>
+        </div>
+      </main>
+      
     </div>
   );
 }
