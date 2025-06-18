@@ -1,6 +1,8 @@
 import './App.css';
+import FeelsLike from './components/FeelsLikeCard';
 import Humidity from './components/HumidityCard';
 import Title from './components/TitleCard';
+import UVIndex from './components/UVIndexCard';
 import Wind from './components/WindCard';
 import useCurrentWeather from './hooks/useCurrentWeather';
 
