@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 
-function useFutureWeather(city){
+function useFutureWeather({city}){
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ function useFutureWeather(city){
             return;
         }
 
-        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Girona&days=7&aqi=no&alerts=no`)
+        fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no`)
             .then((res) => {
                 if (!res.ok) throw new Error("Error a la crida");
                 return res.json();

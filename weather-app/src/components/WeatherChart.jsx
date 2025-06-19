@@ -7,10 +7,11 @@ import useFutureWeather from "../hooks/useFutureWeather";
 
 const PAGE_SIZE = 7;
 
-export default function WeatherChart() {
-    const { data, loading, error } = useFutureWeather("Girona");
+export default function WeatherChart({city}) {
+    const { data, loading, error } = useFutureWeather({city});
     const [page, setPage] = useState(0);
     const start = page * PAGE_SIZE;
+    const [param, setParam] = useState("chance_of_rain");
    
 
     if(loading) return <p>Carregant....</p>
@@ -19,10 +20,28 @@ export default function WeatherChart() {
     const allDays = data.forecast.forecastday;
     const allHours = allDays.flatMap(day => day.hour);
     const paginated = allHours.slice(start, start + PAGE_SIZE);
+
+    const CustomTooltip = ({ active, payload }) => {
+      if (active && payload && payload.length) {
+        return (
+          <div className="bg-white p-2 border rounded shadow text-sm">
+            <p>{payload[0].value}</p>
+          </div>
+        );
+      }
+      return null;
+    };
+
     return (
-      <div className="rounded-xl bg-white p-4 shadow-md max-w-5xl mx-auto">
+      <div className="rounded-xl bg-white p-4 shadow-md max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg font-semibold">Upcoming hours</h2>
+          <select name="paramOptions" id="paramOptions" onChange={(e) => setParam(e.target.value)}>
+            <option value="chance_of_rain"> Chance of rain </option>
+            <option value="feelslike_c"> Feels like temperature </option>
+            <option value="chance_of_snow"> Chance of snow </option>
+            <option value="wind_kph"> Wind </option>
+          </select>
           <button
             onClick={() => setPage(p => (p + 1) % Math.ceil(allHours.length / PAGE_SIZE))}
             className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300"
@@ -31,14 +50,14 @@ export default function WeatherChart() {
           </button>
         </div>
 
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={250}>
           <AreaChart data={paginated}>
             <XAxis dataKey={(d) => d.time.split(" ")[1]} />
             <YAxis hide />
-            <Tooltip />
+            <Tooltip content={<CustomTooltip></CustomTooltip>} />
             <Area
               type="monotone"
-              dataKey="chance_of_rain"
+              dataKey={param}
               stroke="#3b82f6"
               fill="#93c5fd"
             />

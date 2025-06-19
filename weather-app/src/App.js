@@ -6,10 +6,13 @@ import UVIndex from './components/UVIndexCard';
 import Wind from './components/WindCard';
 import useCurrentWeather from './hooks/useCurrentWeather';
 import WeatherChart from './components/WeatherChart';
+import { useState } from 'react';
 
 function App() {
 
-  const { data, loading, error } = useCurrentWeather("Girona");
+  const [city, setCity] = useState("Girona");
+  const { data, loading, error } = useCurrentWeather(city);
+
 
   if(loading) return <p>Carregant....</p>
   if(error) return <p>Error: {error}</p>
@@ -21,11 +24,16 @@ function App() {
           <li>
             <Title city={data.location.name} last_update={data.current.last_updated}></Title>
           </li>
+          <li>
+            <button onClick={() => setCity("London")}>
+              London
+            </button>
+          </li>
         </ul>
       </nav>
       <main class="w-full flex flex-col min-h-screen justify-between">
         <div class="mt-3 h-3/6 ">
-          <WeatherChart></WeatherChart>
+          <WeatherChart city={city}></WeatherChart>
         </div>
         <div class="mr-3 grid grid-cols-3 grid-rows-2 gap-x-4 gap-y-10 p-4">
           <Humidity humidity={data.current.humidity}></Humidity>
