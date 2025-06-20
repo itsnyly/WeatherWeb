@@ -6,10 +6,10 @@ function PressureCard({ pressure }) {
       <div className='card-container'>
         <div className='mb-8 flex flex-col justify-between'>
           <div className='card-header'>
-            <div className='card-title'>Pressió Atmosfèrica</div>
+            <div className='card-title'>Atmospheric pressure</div>
             <img src={pressureIcon} alt="Pressure Icon" className="w-16" />
           </div>
-          <p className='card-value'>{pressure}</p>
+          <p className='card-value'>{pressure} mb</p>
         </div>        
       </div>
   )

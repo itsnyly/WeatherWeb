@@ -32,3 +32,27 @@ code {
   @apply text-gray-700 text-4xl;
 }
 
+.toggle-switch {
+  @apply relative inline-block w-11 h-6;
+}
+
+.toggle-switch input {
+  @apply hidden;
+}
+
+.slider {
+  @apply absolute bg-gray-300 rounded-full top-0 left-0 right-0 bottom-0 transition-colors duration-300 cursor-pointer;
+}
+
+.slider::before {
+  content: "";
+  @apply absolute w-4 h-4 bg-white rounded-full top-1 left-1 transition-transform duration-300;
+}
+
+.toggle-switch input:checked + .slider {
+  @apply bg-blue-500;
+}
+
+.toggle-switch input:checked + .slider::before {
+  transform: translateX(1.25rem); /* 20px */
+}

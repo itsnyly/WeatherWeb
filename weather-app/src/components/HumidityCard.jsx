@@ -9,7 +9,7 @@ function HumidityCard({ humidity }) {
          <div className='card-title'>Humidity</div>
          <img src={humidityIcon} alt="humidity Icon" class="w-16" />
        </div>
-       <p className='card-value'>{humidity}</p>
+       <p className='card-value'>{humidity}%</p>
      </div>
     </div>
   )
