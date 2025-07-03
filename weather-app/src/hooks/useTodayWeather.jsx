@@ -1,7 +1,7 @@
 import useFutureWeather from './useFutureWeather';
 
-function useTodayWeather(city) {
-  const { data, loading, error } = useFutureWeather(city);
+function useTodayWeather({city}) {
+  const { data, loading, error } = useFutureWeather({city});
 
   const todayForecast = data?.forecast?.forecastday?.[0] ?? null;
 

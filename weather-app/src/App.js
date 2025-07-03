@@ -15,7 +15,6 @@ function App() {
   const [city, setCity] = useState("Girona");
   const { data, loading, error } = useCurrentWeather(city);
 
-
   if(loading) return <p>Carregant....</p>
   if(error) return <p>Error: {error}</p>
   
@@ -24,7 +23,7 @@ function App() {
       <nav class="bg-blue-400 min-h-screen max-w-md p-24">
         <ul>
           <li>
-            <WeatherPanel city={data.location.name} last_update={data.current.last_updated}
+            <WeatherPanel city={city} last_update={data.current.last_updated}
             temp_c={data.current.temp_c} temp_f={data.current.temp_f}condition={data.current.condition.text} 
             condition_icon={data.current.condition.icon}></WeatherPanel>
           </li>

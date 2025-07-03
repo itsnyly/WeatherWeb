@@ -6,9 +6,8 @@ import useTodayWeather from '../hooks/useTodayWeather';
 import { useTemperatureUnit } from '../context/TemperatureUnitContext';
 
 function WeatherPanelCard({ city, last_update, temp_c, temp_f, condition, condition_icon }) {
-  
   const { unit, toggleUnit} = useTemperatureUnit();  
-  const { data, loading, error } = useTodayWeather('Girona');
+  const { data, loading, error } = useTodayWeather({city});
 
   if (loading) return <p>Carregant...</p>;
   if (error) return <p>Error: {error}</p>;
