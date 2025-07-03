@@ -12,11 +12,11 @@ function WeatherPanelCard({ city, last_update, temp_c, temp_f, condition, condit
 
   if (loading) return <p>Carregant...</p>;
   if (error) return <p>Error: {error}</p>;
-  
+
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <Title title={city} last_update={last_update} />
+        <Title city={city} last_update={last_update} />
         
         <div className="flex items-center gap-2">
           <span className={`w-6 text-sm font-medium transition-opacity duration-200 

@@ -15,7 +15,7 @@ function App() {
 
   if(loading) return <p>Carregant....</p>
   if(error) return <p>Error: {error}</p>
-
+  
   return (
     <div class="text-center flex bg-blue-200">
       <nav class="bg-blue-400 min-h-screen max-w-md p-24">
